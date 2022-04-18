@@ -17,19 +17,38 @@ Block::Block(vector<Transaction> _transactions, time_t _timestamp, string _previ
 }
 
 void Block::setPreviousHash(string _previousHash) {
-    // TODO
+
 }
 
 string Block::calculateHash() {
-    // TODO
-    return "";   
+    return sha256(toString());;   
 }
 
 void Block::mineBlock(unsigned int difficulty) {
-    // TODO
+    string myHash = calculateHash();
+
+    // do
+    // {
+        /* code */
+    // } while (myHash.substr(0, difficulty) != ); (find out what to put after !=)
+    
+    
 }
 
 string Block::toString() {
-    // TODO
-    return "";
+    stringstream toHash; 
+
+    // format for string
+    // (nounce, time stamp, previous hash) (all transactions)
+
+    /* Maybe fix nounce value??*/
+
+    toHash << "(" << -1 << ", " << timestamp << ", " << previousHash << ") ";
+    for (int i = 0; i < transactions.size(); i++) {
+        Transaction t = transactions[i];
+
+        toHash << t.toString();
+    }
+    
+    return toHash.str();
 }
