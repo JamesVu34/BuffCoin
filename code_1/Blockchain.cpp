@@ -41,7 +41,10 @@ bool Blockchain::minePendingTransactions(string minerAddress) {
 }
 
 int Blockchain::getBalanceOfAddress(string address) {
-    // TODO
+    // traverse chain and find block w/ address
+    for (int i = 0; i < chain.size(); i++) {
+        
+    }
     return 100;
 }
 
