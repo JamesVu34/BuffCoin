@@ -17,22 +17,29 @@ Block::Block(vector<Transaction> _transactions, time_t _timestamp, string _previ
 }
 
 void Block::setPreviousHash(string _previousHash) {
-
+    previousHash = _previousHash;
 }
 
 string Block::calculateHash() {
-    return sha256(toString());;   
+    return sha256(toString());
 }
 
 void Block::mineBlock(unsigned int difficulty) {
     string myHash = calculateHash();
+    string zeros = "";
 
-    // do
-    // {
-        /* code */
-    // } while (myHash.substr(0, difficulty) != ); (find out what to put after !=)
-    
-    
+    // a string of predefined zeros matching difficulty #
+    for (int i = 0; i < difficulty; i++) {
+        zeros += "0";
+    }
+
+    while (myHash.substr(0, difficulty) != zeros){
+        myHash = calculateHash();
+        if (myHash.substr(0, difficulty) == zeros) {
+            break;
+        }
+        nonce += 1;
+    }
 }
 
 string Block::toString() {
@@ -41,9 +48,7 @@ string Block::toString() {
     // format for string
     // (nounce, time stamp, previous hash) (all transactions)
 
-    /* Maybe fix nounce value??*/
-
-    toHash << "(" << -1 << ", " << timestamp << ", " << previousHash << ") ";
+    toHash << "(" << nonce << ", " << timestamp << ", " << previousHash << ") ";
     for (int i = 0; i < transactions.size(); i++) {
         Transaction t = transactions[i];
 
