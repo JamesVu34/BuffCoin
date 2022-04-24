@@ -109,6 +109,11 @@ int main(int argc, char* argv[])
 
             case 4: // view transaction info
             {
+                string address = "";
+                cout << "Please enter address to view transaction information." << endl;
+                getline(cin, address);
+
+                buffCUoin.printTransInfo(address);
                 break;
             }
 

@@ -115,9 +115,23 @@ int Blockchain::getBalanceOfAddress(string address) {
 
 void Blockchain::prettyPrint() {
     cout << "Format of Print: (Sender, Receiver, Amount)" << endl;
-    // for (int i = 0; i < chain.size(); i++) {
-        for (int j = 0; j < pending.size(); j++) {
-            cout << pending[j].toString() << endl;
+    for (int j = 0; j < pending.size(); j++) {
+        cout << pending[j].toString() << endl;
+    }
+}
+
+void Blockchain::printTransInfo(string address) {
+    int receive, sent = 0;
+
+    for (int i = 0; i < pending.size(); i++) {
+        if (pending[i].getSender() == address) {
+            sent += pending[i].getAmount();
         }
-    // }
+        if (pending[i].getReceiver() == address) {
+            receive += pending[i].getAmount();
+        }
+    }
+
+    cout << address << " has sent " << sent << " coins." << endl;
+    cout << address << " balance: " << getBalanceOfAddress(address) << endl;
 }

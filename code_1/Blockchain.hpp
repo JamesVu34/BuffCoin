@@ -21,6 +21,7 @@ class Blockchain {
        bool minePendingTransactions(string minerAddress);
        int getBalanceOfAddress(string address);
        void prettyPrint();
+       void printTransInfo(string address); // print the transaction info of address
 
     private:
         Block getLatestBlock();
