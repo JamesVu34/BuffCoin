@@ -83,10 +83,6 @@ bool Blockchain::minePendingTransactions(string minerAddress) {
 
     newBlock.mineBlock(difficulty);
 
-    if (isChainValid() == false) {
-        return false;
-    }
-
     // clearing transaction vector and pushing back new block onto chain
     pend.clear();
     chain.push_back(newBlock);
