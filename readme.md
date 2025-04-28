@@ -1,9 +1,8 @@
-# CSCI 2270 – Data Structures - Final Project 
+# BuffCoin Project: A Toy Cryptocurrency (C++)
+## Project Overview:
+BuffCoin is a C++ project simulating a basic blockchain-based cryptocurrency system. The project focuses on designing and implementing core blockchain functionalities while reinforcing key data structure concepts like linked lists, vectors, and hashing.
 
-Start by carefully reading the write-up contained in `CSCI2270_Spring22_Project.pdf`.
-
-Please include a thorough description of your program's functionality. Imagine that you are publishing this for users who know nothing about this project. Also, include the names of the team-members/authors.
-
+## To start:
 BuffCUoin Program:
 To start enter your name. You will then be prompted to a menu and can choose any option. To get your first 10 coins you must first mine a pending transaction. The options in the main menu are:
 1. Add a transaction - Add a transaction between 2 users.
@@ -17,5 +16,5 @@ To start enter your name. You will then be prompted to a menu and can choose any
 5. Quit - Quit program
 
 run app command:
-g++ main_1.cpp ../code_1/Block.cpp ../code_1/Transaction.cpp ../code_1/Blockchain.cpp ../code_1/sha256.cpp -std=c++17 -o run
-./run
+`g++ main_1.cpp ../code_1/Block.cpp ../code_1/Transaction.cpp ../code_1/Blockchain.cpp ../code_1/sha256.cpp -std=c++17 -o run
+./run`
